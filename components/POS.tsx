@@ -171,7 +171,7 @@ export const POS: React.FC<POSProps> = ({ products, onRecordSale }) => {
                 </div>
                 <h3 className="font-medium text-slate-800 text-sm line-clamp-2 min-h-[40px] mb-2">{product.name}</h3>
                 <div className="text-indigo-600 font-bold">
-                  ${(mode === 'Retail' ? product.retailPrice : product.wholesalePrice).toFixed(2)}
+                  MMK {(mode === 'Retail' ? product.retailPrice : product.wholesalePrice).toLocaleString()}
                 </div>
               </button>
             ))}
@@ -202,7 +202,7 @@ export const POS: React.FC<POSProps> = ({ products, onRecordSale }) => {
               <div key={item.productId} className="flex items-center gap-3">
                 <div className="flex-1">
                   <div className="text-sm font-medium text-slate-900 line-clamp-1">{item.name}</div>
-                  <div className="text-xs text-slate-500">${item.price.toFixed(2)} / unit</div>
+                  <div className="text-xs text-slate-500">MMK {item.price.toLocaleString()} / unit</div>
                 </div>
                 
                 <div className="flex items-center gap-2 bg-slate-100 rounded-lg p-1">
@@ -235,7 +235,7 @@ export const POS: React.FC<POSProps> = ({ products, onRecordSale }) => {
         <div className="p-4 border-t border-slate-100 bg-slate-50 rounded-b-2xl">
           <div className="flex justify-between items-end mb-4">
             <span className="text-slate-500 text-sm">Total Amount</span>
-            <span className="text-2xl font-bold text-slate-900">${total.toFixed(2)}</span>
+            <span className="text-2xl font-bold text-slate-900">MMK {total.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
           </div>
           <button
             onClick={handleCheckout}

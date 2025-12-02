@@ -26,4 +26,4 @@ export interface Sale {
   total: number;
 }
 
-export type ViewState = 'DASHBOARD' | 'POS' | 'INVENTORY';
+export type ViewState = 'DASHBOARD' | 'POS' | 'INVENTORY' | 'HISTORY';

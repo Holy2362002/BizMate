@@ -97,8 +97,8 @@ export const Inventory: React.FC<InventoryProps> = ({ products, onSave, onDelete
                   {product.stock}
                 </span>
               </div>
-              <div className="col-span-2 text-right text-sm text-slate-600">${product.retailPrice}</div>
-              <div className="col-span-2 text-right text-sm text-slate-600">${product.wholesalePrice}</div>
+              <div className="col-span-2 text-right text-sm text-slate-600">MMK {product.retailPrice}</div>
+              <div className="col-span-2 text-right text-sm text-slate-600">MMK {product.wholesalePrice}</div>
               <div className="col-span-2 flex justify-center gap-2">
                 <button
                   onClick={() => handleEdit(product)}
@@ -178,7 +178,7 @@ export const Inventory: React.FC<InventoryProps> = ({ products, onSave, onDelete
                 <div>
                   <label className="block text-xs font-semibold text-slate-500 mb-1 uppercase tracking-wider">Retail Price</label>
                   <div className="relative">
-                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">$</span>
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs font-bold">MMK</span>
                     <input
                         required
                         type="number"
@@ -186,14 +186,14 @@ export const Inventory: React.FC<InventoryProps> = ({ products, onSave, onDelete
                         step="0.01"
                         value={editingProduct.retailPrice || ''}
                         onChange={e => setEditingProduct({...editingProduct, retailPrice: parseFloat(e.target.value)})}
-                        className="w-full pl-6 pr-3 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:border-indigo-500"
+                        className="w-full pl-10 pr-3 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:border-indigo-500"
                     />
                   </div>
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-slate-500 mb-1 uppercase tracking-wider">Wholesale Price</label>
                   <div className="relative">
-                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">$</span>
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs font-bold">MMK</span>
                     <input
                         required
                         type="number"
@@ -201,7 +201,7 @@ export const Inventory: React.FC<InventoryProps> = ({ products, onSave, onDelete
                         step="0.01"
                         value={editingProduct.wholesalePrice || ''}
                         onChange={e => setEditingProduct({...editingProduct, wholesalePrice: parseFloat(e.target.value)})}
-                        className="w-full pl-6 pr-3 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:border-indigo-500"
+                        className="w-full pl-10 pr-3 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:border-indigo-500"
                     />
                   </div>
                 </div>

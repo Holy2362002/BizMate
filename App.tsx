@@ -3,6 +3,7 @@ import { Layout } from './components/Layout';
 import { Dashboard } from './components/Dashboard';
 import { POS } from './components/POS';
 import { Inventory } from './components/Inventory';
+import { History } from './components/History';
 import { ViewState, Product, Sale } from './types';
 import { storageService } from './services/storageService';
 
@@ -57,6 +58,9 @@ const App: React.FC = () => {
             onSave={handleSaveProduct} 
             onDelete={handleDeleteProduct} 
         />
+      )}
+      {currentView === 'HISTORY' && (
+        <History sales={sales} />
       )}
     </Layout>
   );

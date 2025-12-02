@@ -1,6 +1,6 @@
 import React from 'react';
 import { ViewState } from '../types';
-import { LayoutDashboard, ShoppingCart, Package } from 'lucide-react';
+import { LayoutDashboard, ShoppingCart, Package, History } from 'lucide-react';
 
 interface LayoutProps {
   currentView: ViewState;
@@ -35,7 +35,7 @@ export const Layout: React.FC<LayoutProps> = ({ currentView, onNavigate, childre
 
       {/* Bottom Navigation */}
       <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 z-30 pb-safe">
-        <div className="flex justify-around items-center max-w-md mx-auto h-16">
+        <div className="flex justify-around items-center max-w-md mx-auto h-16 px-2">
           <button
             onClick={() => onNavigate('DASHBOARD')}
             className={`flex flex-col items-center justify-center w-full h-full space-y-1 ${
@@ -64,6 +64,16 @@ export const Layout: React.FC<LayoutProps> = ({ currentView, onNavigate, childre
           >
             <Package size={20} strokeWidth={currentView === 'INVENTORY' ? 2.5 : 2} />
             <span className="text-[10px] font-medium">Inventory</span>
+          </button>
+
+          <button
+            onClick={() => onNavigate('HISTORY')}
+            className={`flex flex-col items-center justify-center w-full h-full space-y-1 ${
+              currentView === 'HISTORY' ? 'text-indigo-600' : 'text-slate-400 hover:text-slate-600'
+            }`}
+          >
+            <History size={20} strokeWidth={currentView === 'HISTORY' ? 2.5 : 2} />
+            <span className="text-[10px] font-medium">History</span>
           </button>
         </div>
       </nav>

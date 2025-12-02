@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Product, Sale } from '../types';
-import { AlertTriangle, TrendingUp, DollarSign, Package, ArrowUpRight, ArrowDownRight } from 'lucide-react';
+import { AlertTriangle, TrendingUp, DollarSign, Package, ArrowUpRight, ArrowDownRight  } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 
 interface DashboardProps {
@@ -45,13 +45,13 @@ export const Dashboard: React.FC<DashboardProps> = ({ products, sales, onRestock
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Revenue Card */}
         <div className="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-4 opacity-10">
-            <DollarSign size={80} />
+          <div className="absolute top-0 right-0 p-4 opacity-10 ">
+            Kyats
           </div>
           <div className="relative z-10">
             <h3 className="text-slate-500 text-sm font-medium mb-1">Today's Revenue</h3>
             <div className="text-3xl font-bold text-slate-900">
-              ${stats.totalRevenue.toFixed(2)}
+              MMK {stats.totalRevenue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </div>
             <div className="flex items-center mt-2 text-emerald-600 text-sm font-medium">
               <TrendingUp size={16} className="mr-1" />
@@ -88,9 +88,10 @@ export const Dashboard: React.FC<DashboardProps> = ({ products, sales, onRestock
                 <ResponsiveContainer width="100%" height="100%">
                     <BarChart data={stats.chartData}>
                     <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fill: '#64748b', fontSize: 12}} dy={10} />
-                    <YAxis axisLine={false} tickLine={false} tick={{fill: '#64748b', fontSize: 12}} tickFormatter={(value) => `$${value}`} />
+                    <YAxis axisLine={false} tickLine={false} tick={{fill: '#64748b', fontSize: 12}} tickFormatter={(value) => `${value}`} />
                     <Tooltip 
                         cursor={{fill: '#f1f5f9'}}
+                        formatter={(value: number) => [`MMK ${value.toLocaleString()}`, 'Sales']}
                         contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
                     />
                     <Bar dataKey="value" radius={[6, 6, 0, 0]} barSize={40}>
